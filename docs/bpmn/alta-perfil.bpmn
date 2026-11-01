@@ -2,10 +2,10 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Def_surrca" targetNamespace="https://github.com/ailcic/surrca-tpi">
   <bpmn:collaboration id="Colab">
     <bpmn:participant id="P_mupn" name="MUPN: alta y publicación de perfil de investigador" processRef="Proc_alta"/>
-    <bpmn:participant id="P_bases" name="Bases científicas externas"/>
+    <bpmn:participant id="P_bases" name="Fuentes externas (CV, ORCID, repositorios)"/>
     <bpmn:participant id="P_comunidad" name="Comunidad académica y público"/>
     <bpmn:messageFlow id="M0" name="Consulta" sourceRef="t7" targetRef="P_bases"/>
-    <bpmn:messageFlow id="M1" name="Publicaciones y métricas" sourceRef="P_bases" targetRef="t7"/>
+    <bpmn:messageFlow id="M1" name="Producción y métricas" sourceRef="P_bases" targetRef="t7"/>
     <bpmn:messageFlow id="M2" name="Perfil visible en el portal" sourceRef="t10" targetRef="P_comunidad"/>
   </bpmn:collaboration>
   <bpmn:process id="Proc_alta" isExecutable="false">
@@ -79,12 +79,12 @@
       <bpmn:incoming>F9</bpmn:incoming>
       <bpmn:outgoing>F10</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:serviceTask id="t7" name="Importar publicaciones y métricas">
+    <bpmn:serviceTask id="t7" name="Precargar producción y métricas">
       <bpmn:incoming>F8</bpmn:incoming>
       <bpmn:incoming>F10</bpmn:incoming>
       <bpmn:outgoing>F11</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:userTask id="t8" name="Completar y revisar el perfil">
+    <bpmn:userTask id="t8" name="Completar perfil y elegir qué se muestra">
       <bpmn:incoming>F11</bpmn:incoming>
       <bpmn:outgoing>F12</bpmn:outgoing>
     </bpmn:userTask>
