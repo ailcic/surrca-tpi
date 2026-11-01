@@ -9,7 +9,11 @@ SURRCA es un sistema propuesto para una Macro Universidad Pública Nacional (MUP
 una universidad en particular: hay varias universidades nacionales de este tamaño y cualquiera de
 ellas podría usarlo. Su objetivo es mostrar la producción científica y académica de la universidad
 con datos verificables. Su alcance inicial (MVP) tiene dos módulos: un portal público de
-visibilización y perfiles de investigadores, cuya publicación es voluntaria.
+visibilización y perfiles de investigadores.
+
+La visibilidad tiene dos capas. Una es obligatoria: la información mínima de un proyecto avalado o
+subsidiado se muestra por la sola existencia del proyecto. La otra es voluntaria: cada persona decide
+si muestra su perfil y qué muestra de lo que se precarga.
 
 Este repositorio contiene documentación, no el código del sistema.
 
@@ -21,10 +25,10 @@ Este repositorio contiene documentación, no el código del sistema.
 
 | Documento | Qué contiene |
 |---|---|
-| [Proceso BPMN](docs/bpmn/) | Alta y publicación de perfil, como imagen y como modelo `.bpmn` editable |
+| [Procesos BPMN](docs/bpmn/) | Alta y publicación de perfil, y publicación de la ficha mínima, como imagen y como modelo `.bpmn` editable |
 | [Historias de usuario](docs/historias-usuario.md) | Las tres historias del tablero |
 | [Indicadores de control](docs/indicadores-control.md) | Indicadores y estándares para la auditoría técnica |
-| [Diccionario de datos](docs/diccionario-datos.md) | Investigador, Unidad académica, Proyecto y Filiación secundaria |
+| [Diccionario de datos](docs/diccionario-datos.md) | Investigador, Unidad académica, Proyecto, Filiación secundaria y Producción precargada |
 | [Planificación y estructura](docs/planificacion/) | Matriz FODA, Gantt y organigramas |
 
 ## Tablero
@@ -58,8 +62,22 @@ asume la responsabilidad por el contenido: los errores del asistente son errores
   cualquiera de ellas.
 - **Historias de usuario.** El autor revisó las tres propuestas y conservó sus enunciados.
 
+### Aportes de la revisión
+
+Los comentarios de [@drAndric](https://github.com/drAndric) en los issues cambiaron el modelo:
+
+- **Información mínima obligatoria ([#1](https://github.com/ailcic/surrca-tpi/issues/1)).** El borrador
+  trataba toda la visibilidad como voluntaria. Se agregó un segundo proceso para la ficha mínima de
+  los proyectos, que no depende del registro.
+- **Precarga ([#2](https://github.com/ailcic/surrca-tpi/issues/2)).** La decisión era única, por todo el
+  perfil. Ahora lo recuperado del CV, de ORCID o de repositorios se precarga, y cada persona elige qué
+  se muestra.
+- **Filiación ([#3](https://github.com/ailcic/surrca-tpi/issues/3)).** Confirmó la corrección del autor:
+  al menos una filiación fijada por la autoridad de la universidad, y otras opcionales.
+
 ### Límites
 
-Las cifras de los indicadores I5 a I7 son supuestos de diseño. El modelo BPMN se validó
+Las cifras de los indicadores I5 a I7 son supuestos de diseño. Qué campos forman la ficha mínima y que
+lo precargado arranque oculto son propuestas del asistente sobre esos comentarios. El modelo BPMN se validó
 con un script contra las reglas del material de la cátedra, lo que comprueba su forma pero no que
 describa bien el proceso.
