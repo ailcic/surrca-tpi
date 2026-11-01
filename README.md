@@ -33,12 +33,14 @@ Este repositorio contiene documentación, no el código del sistema.
 
 ## Tablero
 
-[Backlog del MVP en GitHub Projects](https://github.com/users/ailcic/projects/1). En el tablero, **Listo** significa que la historia está especificada y documentada, no que esté implementada.
+[Backlog del MVP en GitHub Projects](https://github.com/users/ailcic/projects/1/views/2). En el tablero, **Listo** significa que la historia está especificada y documentada, no que esté implementada.
 
 ## Declaración de Uso de IA
 
-Para estructurar y redactar esta documentación se usó Claude, mediante Claude Code. El autor
-asume la responsabilidad por el contenido: los errores del asistente son errores del autor.
+A lo largo de este TPI se hizo una evaluación de las posibilidades de la herramienta Claude Code bajo
+supervisión constante, usándose para revisar estilos y formatos, también para la generación de tablas
+y diagramas desde descripciones de lenguaje natural. La exclusiva responsabilidad de los contenidos
+continúa siendo del autor.
 
 ### Prompts utilizados y por qué
 
