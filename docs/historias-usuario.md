@@ -17,7 +17,10 @@ la historia está especificada y documentada, no que esté implementada**.
   - El perfil nace como borrador, con `perfil_visible` en falso.
   - La filiación principal la determina la autoridad (Secretaría de Gestión de Personal), y el
     investigador o investigadora no puede modificarla.
-  - Se pueden declarar filiaciones secundarias, actuales o pasadas, con fechas o vigencia.
+  - Se pueden declarar, de manera opcional, filiaciones secundarias, actuales o pasadas, con fechas
+    o vigencia.
+  - El perfil no es la única vía de visibilidad: la información mínima de un proyecto avalado o
+    subsidiado se muestra por la sola existencia del proyecto, aunque quien lo dirige no se registre.
 
 ## H2. Decisión de visibilidad
 
@@ -27,7 +30,11 @@ público, **para** controlar qué hago visible y cuándo.
 - **Prioridad:** alta.
 - **Criterios de aceptación:**
   - Solo el propio investigador o investigadora puede cambiar `perfil_visible`.
-  - Si no autoriza, el perfil se conserva como privado y no aparece en el portal.
+  - Si no autoriza, el perfil se conserva como privado y no aparece en el portal. La ficha mínima de
+    sus proyectos sigue visible, porque no depende de esta decisión.
+  - Lo que se recupera del CV, de ORCID o de repositorios se precarga oculto, y cada persona decide
+    qué se muestra, en especial lo del circuito externo a la universidad (otro organismo, o
+    producción ajena a la docencia y la investigación, como una novela).
   - Cada publicación actualiza el conteo de adopción de la meta M4.
 
 ## H3. Corrección de filiaciones
@@ -37,6 +44,8 @@ coinciden con las de Personal, **para** que el portal no muestre datos erróneos
 
 - **Prioridad:** media.
 - **Criterios de aceptación:**
+  - Toda persona tiene al menos una filiación principal, fijada por la autoridad correspondiente de
+    la universidad.
   - El sistema deriva al referente cada filiación principal que no coincide con la de Personal.
   - El referente también puede registrar una filiación secundaria en nombre del investigador o
     investigadora.
