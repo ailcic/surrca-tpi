@@ -12,7 +12,7 @@ Nacional (MUPN) cualquiera.
 | id_investigador | Integer | PK | Identificador interno que asigna el sistema. No cambia aunque cambien los demás datos del investigador. |
 | apellido | String(60) | NN | Apellido tal como figura en las publicaciones; se usa para ordenar y buscar en el portal. |
 | nombre | String(60) | NN | Nombre o nombres del investigador. |
-| email_institucional | String(100) | NN, UQ | Correo con el dominio de la universidad. Acredita la pertenencia a la universidad y sirve como usuario de acceso al perfil. |
+| email_institucional | String(100) | UQ | Correo con el dominio de la universidad. Acredita la pertenencia y sirve como usuario de acceso al perfil. Puede estar vacío en quien dirige un proyecto y no se registró, porque la ficha mínima no depende del registro. |
 | id_unidad | Integer | NN, FK → Unidad académica | Unidad de filiación principal. La determina una autoridad (fuente: Secretaría de Gestión de Personal); el investigador no puede modificarla. |
 | perfil_visible | Boolean | NN; por defecto, falso | Indica si el perfil se muestra en el portal público. Seguridad: solo lo modifica el propio investigador, porque la visibilidad es voluntaria. Es la base para medir la meta M4 de la Entrega N.º 2. |
 
@@ -56,7 +56,29 @@ además de la filiación principal (id_unidad en Investigador), puede tener fili
 | vigente | Boolean | NN | Indica si sigue vigente. Se declara cuando no hay fechas; si fecha_fin ya pasó, es falso. |
 | declarada_por | String(20) | NN; datos aceptables: Investigador, Referente | Quién la declaró. A diferencia de la principal, no la determina una autoridad. |
 
+## Entidad 5: Producción precargada
+
+Lo que se puede recuperar automáticamente del CV, de ORCID o de repositorios se precarga, y cada
+persona decide qué se muestra.
+
+| Campo | Tipo | Restricciones | Descripción funcional |
+|:-----------------------|:---------------|:-------------------|:------------------------------------------|
+| id_produccion | Integer | PK | Identificador interno del elemento. |
+| id_investigador | Integer | NN, FK → Investigador | Investigador al que corresponde. |
+| titulo | String(250) | NN | Título del elemento, tal como llega de la fuente. |
+| origen | String(20) | NN; datos aceptables: CV, ORCID, Repositorio | Fuente de la que se recuperó. |
+| circuito | String(20) | NN; datos aceptables: Institucional, Externo | Externo: otro organismo, o producción ajena a la docencia y la investigación, como una novela. |
+| visible | Boolean | NN; por defecto, falso | Indica si se muestra en el portal. Seguridad: solo lo modifica el propio investigador. |
+
+## Ficha mínima de un proyecto
+
+Un proyecto avalado o subsidiado es visible aunque quien lo dirige no se registre. La ficha mínima no
+agrega campos: muestra codigo, titulo, id_director, id_unidad, organismo_financiador, fecha_inicio y
+fecha_fin de la entidad Proyecto. No muestra monto_otorgado.
+
 ## Relaciones entre las entidades
+
+- Cada **Investigador** puede tener cero o más elementos de **Producción precargada** (id_investigador).
 
 - Cada **Investigador** puede tener cero o más **Filiaciones secundarias** (id_investigador).
 
@@ -67,5 +89,4 @@ además de la filiación principal (id_unidad en Investigador), puede tener fili
 - Cada **Proyecto** tiene un director (id_director, un Investigador) y una sede
   (id_unidad, una Unidad académica).
 - **Pendiente para la versión siguiente:** los integrantes del proyecto, además del
-  director, forman una relación de muchos a muchos, que requiere una tabla intermedia; y
-  la entidad de la producción científica.
+  director, forman una relación de muchos a muchos, que requiere una tabla intermedia.
